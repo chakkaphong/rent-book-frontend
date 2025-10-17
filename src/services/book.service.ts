@@ -1,9 +1,10 @@
+import { API_BASE_URL } from "../config/app";
 import type { BookCreateReqeust, BookUpdateReqeust } from "../types/Book";
 
 
 export async function createBook(book: BookCreateReqeust) {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://127.0.0.1:3000/books", {
+    const res = await fetch(`${API_BASE_URL}/books`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -19,7 +20,7 @@ export async function createBook(book: BookCreateReqeust) {
 
 
 export async function searchBooks(search?: string) {
-    const res = await fetch("http://127.0.0.1:3000/books/search", {
+    const res = await fetch(`${API_BASE_URL}/books/search`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ search }),
@@ -32,7 +33,7 @@ export async function searchBooks(search?: string) {
 
 export async function updateBook(book: BookUpdateReqeust) {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://127.0.0.1:3000/books", {
+    const res = await fetch(`${API_BASE_URL}/books`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",

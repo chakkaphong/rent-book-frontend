@@ -1,7 +1,8 @@
+import { API_BASE_URL } from "../config/app";
 import type { LoginRequest, LoginResponse } from "../types/Auth";
 
 export async function login(req: LoginRequest): Promise<LoginResponse> {
-    const res = await fetch("http://127.0.0.1:3000/auth/login", {
+    const res = await fetch(`${API_BASE_URL}/auth/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
